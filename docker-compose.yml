@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: fastapi-websocket-app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    command: >
+      uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
+    stop_grace_period: 35m
